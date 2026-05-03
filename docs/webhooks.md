@@ -1,3 +1,7 @@
+[← Back to README](../README.md) · [Home](index.md) · [Getting Started](getting-started.md) · [API](api-reference.md) · [Auth](authentication.md) · [Webhooks](webhooks.md) · [Python SDK](sdks/python.md) · [Migrate](guides/migrate-from-wordpress.md) · [FAQ](faq.md)
+
+---
+
 # Webhooks
 
 Webhooks let you receive notifications when things happen in your QS account. You can subscribe to events like content published, content updated, user invited, and more.

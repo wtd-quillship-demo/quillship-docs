@@ -1,3 +1,7 @@
+[← Back to README](../../README.md) · [Home](../index.md) · [Getting Started](../getting-started.md) · [API](../api-reference.md) · [Auth](../authentication.md) · [Webhooks](../webhooks.md) · [Python SDK](../sdks/python.md) · [Migrate](../guides/migrate-from-wordpress.md) · [FAQ](../faq.md)
+
+---
+
 # Python SDK
 
 The Python SDK gives you a clean, idiomatic way to work with Quillship from your Python code.

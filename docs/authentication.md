@@ -1,3 +1,7 @@
+[← Back to README](../README.md) · [Home](index.md) · [Getting Started](getting-started.md) · [API](api-reference.md) · [Auth](authentication.md) · [Webhooks](webhooks.md) · [Python SDK](sdks/python.md) · [Migrate](guides/migrate-from-wordpress.md) · [FAQ](faq.md)
+
+---
+
 # Authentication
 
 All Quillship API requests require authentication. We use API tokens for this.
