@@ -10,26 +10,26 @@ The Quillship JavaScript SDK is the recommended way to interact with our API fro
 
 Install via your favorite package manager:
 
-```
+```bash
 npm install @quillship/client
 ```
 
 ## Basic usage
 
-```
-import { quillship } from '@quillship/client';
+```javascript
+import { Quillship } from '@quillship/client';
 
-const client = quillship({ token: 'your-token' });
+const client = new Quillship({ token: 'your-token' });
 
-const result = client.content.list({ contentType: 'article' });
+await const result = client.content.list({ contentType: 'article' });
 ```
 
 You can configure the client with various options including timeout, retry behavior, and a custom fetch implementation.
 
 ## Working with content
 
-```
-const article = client.content.create({
+```javascript
+await const article = client.content.create({
   contentType: 'article',
   fields: {
     title: 'Hello',
@@ -37,19 +37,63 @@ const article = client.content.create({
   }
 });
 
-const fetched = client.content.get(article.id);
-const updated = client.content.update(article.id, { fields: { title: 'Updated' } });
-client.content.delete(article.id);
+await const fetched = client.content.get(article.id);
+await const updated = client.content.update(article.id, { fields: { title: 'Updated' } });
+await client.content.delete(article.id);
 ```
 
 ## TypeScript
 
 The SDK ships with TypeScript types out of the box. If you're using TypeScript, you'll get autocomplete and type checking for all SDK methods. For typed content (where each content type has known fields), you can pass a generic type parameter.
 
+For example:
+
+```typescript
+import Quillship from '@quillship/client';
+
+type Article = {
+  title: string;
+  body: string;
+};
+
+async function main() {
+  const client = quillship({ token: 'your-token' });
+  const result = await client.content.list<Article>({ contentType: 'article' });
+  console.log(result);
+}
+
+main();
+```
+
 ## Browser usage
 
 For browser usage, make sure your token has the appropriate scope. Don't ship admin tokens to the browser — use a public read-only token instead. The SDK automatically detects browser environments and applies appropriate defaults.
+Refer to [Authentication](authentication.md).
 
 ## Error handling
 
 The SDK throws on errors. Catch QuillshipError or one of its subclasses for fine-grained handling.
+
+For example:
+
+```javascript
+import quillship, { QuillshipError, AuthenticationError } from '@quillship/client';
+
+async function main() {
+  const client = quillship({ token: 'your-token' });
+
+  try {
+    await client.content.list({ contentType: 'article' });
+  } catch (error) {
+    if (error instanceof AuthenticationError) {
+      console.error('Invalid token or missing permissions:', error.message);
+    } else if (error instanceof QuillshipError) {
+      console.error('Quillship API error:', error.message);
+    } else {
+      console.error('Unexpected error:', error);
+    }
+  }
+}
+
+main();
+```
