@@ -7,8 +7,8 @@
 So you want to use Quillship. Great choice! This page will walk you through the basics.
 
 ## Prerequisites
-- [Node 18+](https://nodejs.org/download/release/v18.20.8/)
-- [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm/)
+- [Node 18+] (https://nodejs.org/download/release/v18.20.8/)
+- [npm] (https://docs.npmjs.com/downloading-and-installing-node-js-and-npm/)
 
 ## Troubleshooting
 - You must check your security setting first.
