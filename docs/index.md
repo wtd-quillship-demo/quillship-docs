@@ -3,22 +3,21 @@
 ---
 
 
-Welcome! Quillship makes it easy to ship beautiful content to anywhere your audience lives. Whether you're a solo creator, a growing team, or a global publishing operation, we've got you covered with tools that just work.
+# Quillship
 
-We believe content should flow freely. That's why we built Quillship — to break down the walls between your CMS and the rest of your stack. From mobile apps to smart fridges, your words go where they need to go.
+## What is Quillship?
 
-Get started in minutes. Stay productive forever.
+Quillship is a headless CMS that separates your content from your frontend. It stores and manages your content and delivers it through an API. You bring your own frontend — Quillship handles the rest.
 
-## Why teams choose us
+## Where to go next
 
-- Lightning fast
-- Easy to use
-- Plays well with your stack
-- Powerful when you need it
-- Simple when you don't
+- [Getting Started](getting-started.md)
+- [API Reference](api-reference.md)
+- [Migrate from WordPress](guides/migrate-from-wordpress.md)
 
-## Ready to dive in?
+## Why teams choose Quillship
 
-Check out our guides, browse the API, or just start building. We're here when you need us.
-
-Happy shipping!
+- Deliver content to any platform through a flexible API
+- Supports REST and GraphQL
+- Official SDKs for Python and JavaScript
+- Works with any frontend framework
