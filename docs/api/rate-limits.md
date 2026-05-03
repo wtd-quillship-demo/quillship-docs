@@ -6,14 +6,68 @@
 
 Quillship enforces rate limits to keep the platform stable for everyone. The exact limits depend on your plan and the type of request you're making.
 
-Read requests, which include any GET request and any GraphQL query, have a higher limit than write requests. On the free tier you get up to a few hundred read requests per minute, with the exact number depending on whether you're authenticated and the size of the response. Authenticated requests get higher limits than unauthenticated ones. Larger responses count more against your limit because they consume more resources to generate.
+## Limits by Plan
 
-Write requests, which include POST, PATCH, PUT, DELETE, and any GraphQL mutation, have lower limits because they're more expensive to process. On the free tier these are roughly an order of magnitude lower than read limits. The Pro tier increases this significantly, and Enterprise plans can negotiate custom limits.
+| Plan       | Read Requests (per minute) | Write Requests (per minute) | Bulk Operations (per minute) |
+|------------|----------------------------|-----------------------------|-----------------------------|
+| Free       | 300                        | 30                          | 5                           |
+| Pro        | 3,000                      | 300                         | 50                          |
+| Enterprise | Custom (contact sales)     | Custom (contact sales)      | Custom (contact sales)      |
 
-Bulk operations, which let you perform many actions in a single request, have their own limits and pricing model. A bulk request counts as a single request against your rate limit but the operations within it are subject to additional batch-level limits. There's also a maximum batch size that varies by operation type.
+**Read requests** include any GET request and any GraphQL query.
 
-When you exceed a rate limit, you'll receive a response indicating that you've been rate limited. The response will include information about when you can try again. If you keep retrying immediately you'll just keep hitting the limit, so back off and try again after the suggested wait time.
+**Write requests** include POST, PATCH, PUT, DELETE, and any GraphQL mutation.
 
-For most applications, you shouldn't need to worry about rate limits if you're using our SDKs, which handle backoff automatically. If you're hitting limits regularly, consider whether you can cache responses, batch requests, or upgrade your plan.
+**Bulk operations** let you perform many actions in a single request. A bulk request counts as one request against your rate limit, but the operations within it are subject to additional batch-level limits (max 100 operations per batch on Free/Pro plans).
 
-Webhooks have their own rate limit on the delivery side — we won't send you more events per minute than your endpoint can handle. If your endpoint starts returning errors or timing out, we'll back off automatically.
+## Response Headers
+
+Every API response includes rate limit headers so you can track your usage:
+
+```http
+X-RateLimit-Limit: 300
+X-RateLimit-Remaining: 287
+X-RateLimit-Reset: 1672531200
+```
+
+**`X-RateLimit-Limit`**: Maximum requests allowed in the current time window
+
+**`X-RateLimit-Remaining`**: Number of requests remaining in the current time window
+
+**`X-RateLimit-Reset`**: Unix timestamp when the rate limit resets
+
+## Example 429 Response
+
+When you exceed a rate limit, you'll receive a `429 Too Many Requests` response:
+
+```http
+HTTP/1.1 429 Too Many Requests
+Content-Type: application/json
+X-RateLimit-Limit: 300
+X-RateLimit-Remaining: 0
+X-RateLimit-Reset: 1672531260
+Retry-After: 60
+
+{
+  "error": {
+    "type": "rate_limit_exceeded",
+    "message": "Rate limit exceeded. Please retry after 60 seconds.",
+    "retry_after": 60
+  }
+}
+```
+
+The `Retry-After` header tells you how many seconds to wait before retrying.
+
+## Best Practices
+
+- **Check rate limit headers** in your responses to track usage and avoid hitting limits
+- **Implement exponential backoff** when you receive a `429` response
+- **Respect the `Retry-After` header** - don't retry immediately or you'll keep hitting the limit
+- **Cache responses** when possible to reduce API calls
+- **Use webhooks** instead of polling for real-time updates
+- **Use our SDKs** - they handle backoff and retries automatically
+
+Authenticated requests get higher priority than unauthenticated ones. If you're hitting limits regularly, consider caching, batching, or upgrading your plan.
+
+For webhook delivery limits, see [Webhooks](../webhooks.md).
