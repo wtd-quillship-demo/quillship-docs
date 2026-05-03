@@ -2,8 +2,22 @@
 
 A fictional headless CMS with **deliberately defective documentation**, built for the Writing Day project [Can AI Find Your Docs? A Community Audit and Pattern Catalog](https://www.writethedocs.org/conf/portland/2026/writing-day/).
 
-Live preview (auto-published from `main` via GitHub Pages):
-**https://wtd-quillship-demo.github.io/quillship-docs/**
+## 📖 Browse the docs (this is what you audit)
+
+| Page | What's wrong with it |
+|---|---|
+| [Home](docs/index.md) | Marketing fluff, no H1, no real "what is this" |
+| [Getting Started](docs/getting-started.md) | Code blocks with no language tag |
+| [API Reference](docs/api-reference.md) | Wall of prose, no endpoint structure |
+| [Authentication](docs/authentication.md) | Vague — no header name, no token format |
+| [Webhooks](docs/webhooks.md) | Broken anchors, undefined acronyms |
+| [Python SDK](docs/sdks/python.md) | No install command, untagged code |
+| [Migrate from WordPress](docs/guides/migrate-from-wordpress.md) | 3KB single paragraph |
+| [FAQ](docs/faq.md) | Circular answers |
+
+**Live (rendered) site:** [wtd-quillship-demo.github.io/quillship-docs](https://wtd-quillship-demo.github.io/quillship-docs/) — this is the URL you audit
+
+**Source files:** Click any link in the table above to view the markdown on GitHub (where you'll edit it)
 
 ---
 
