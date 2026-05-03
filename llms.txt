@@ -1,0 +1,22 @@
+# Quillship
+
+> A fictional headless CMS — defective docs used as a Writing Day sandbox.
+
+## Docs
+
+- [Home](https://wtd-quillship-demo.github.io/quillship-docs/docs/): Overview and landing page
+- [Getting Started](https://wtd-quillship-demo.github.io/quillship-docs/docs/getting-started.html): Install Quillship and create your first content type
+- [Authentication](https://wtd-quillship-demo.github.io/quillship-docs/docs/authentication.html): API keys, OAuth, and token management
+- [API Reference](https://wtd-quillship-demo.github.io/quillship-docs/docs/api-reference.html): REST endpoints and request/response schemas
+- [GraphQL API](https://wtd-quillship-demo.github.io/quillship-docs/docs/api/graphql.html): GraphQL schema, queries, and mutations
+- [Rate Limits](https://wtd-quillship-demo.github.io/quillship-docs/docs/api/rate-limits.html): Request quotas, headers, and backoff strategies
+- [Webhooks](https://wtd-quillship-demo.github.io/quillship-docs/docs/webhooks.html): Event subscriptions and payload format
+- [Python SDK](https://wtd-quillship-demo.github.io/quillship-docs/docs/sdks/python.html): Official Python client library
+- [JavaScript SDK](https://wtd-quillship-demo.github.io/quillship-docs/docs/sdks/javascript.html): Official JavaScript/Node.js client library
+- [Quickstart: React](https://wtd-quillship-demo.github.io/quillship-docs/docs/guides/quickstart-react.html): Fetch and render content in a React app
+- [Migrating from WordPress](https://wtd-quillship-demo.github.io/quillship-docs/docs/guides/migrate-from-wordpress.html): Step-by-step migration guide
+- [Content Model](https://wtd-quillship-demo.github.io/quillship-docs/docs/concepts/content-model.html): Content types, fields, and relationships
+- [Deployment](https://wtd-quillship-demo.github.io/quillship-docs/docs/ops/deployment.html): Hosting options and environment configuration
+- [CLI Reference](https://wtd-quillship-demo.github.io/quillship-docs/docs/reference/cli.html): Command-line tool flags and subcommands
+- [Glossary](https://wtd-quillship-demo.github.io/quillship-docs/docs/reference/glossary.html): Key terms and definitions
+- [FAQ](https://wtd-quillship-demo.github.io/quillship-docs/docs/faq.html): Frequently asked questions
