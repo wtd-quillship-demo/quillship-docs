@@ -10,18 +10,29 @@ Improve the AI-readiness of the documentation in `docs/` without changing the un
 
 ---
 
-## What "AI-readiness" means here
+## What "AI-readiness" means here (canonical list)
 
-A documentation page is AI-ready when a language model can read it once and answer accurate, specific questions about the product. Specifically:
+> This is the canonical anti-patterns / fix-criteria list for the project. The README and PATTERN_CATALOG.md both point here.
 
-1. **Structure first** — every page has an H1, logical H2/H3 hierarchy, clear sections.
-2. **Self-contained** — each page tells you enough to act, or links explicitly to the prerequisites.
-3. **Concrete over vague** — replace phrases like "configure as needed" or "depending on your setup" with specific examples or explicit pointers.
-4. **Code is runnable** — every code block has a language tag (` ```bash `, ` ```python `, ` ```json `), and shows the install/setup it depends on.
-5. **No undefined acronyms** — first use of any acronym is spelled out (e.g., "real-time (RT)").
-6. **No broken references** — anchor links resolve, internal links go somewhere real, "see X" actually points to X.
-7. **Chunkable** — long prose paragraphs become bullets or small sections so retrieval works.
-8. **Discoverable** — root `llms.txt`, descriptive page titles, schema.org `Article`/`HowTo` metadata where useful.
+A documentation page is AI-ready when a language model can read it once and answer accurate, specific questions about the product. The fixes attendees will make today fall into these eight criteria:
+
+1. **Structure first** — every page has an H1, logical H2/H3 hierarchy, clear sections. (Anti-pattern: *wall of prose*, *missing TL;DR*, *buried lede*.)
+2. **Self-contained** — each page tells you enough to act, or links explicitly to the prerequisites. (Anti-pattern: *buried prerequisites*.)
+3. **Concrete over vague** — replace phrases like "configure as needed" or "depending on your setup" with specific examples or explicit pointers. (Anti-pattern: *generic guidance*, *empty stub commands*, *numbers buried in prose*.)
+4. **Code is runnable** — every code block has a language tag (` ```bash `, ` ```python `, ` ```json `), and shows the install/setup it depends on. (Anti-pattern: *untagged code block*.)
+5. **No undefined acronyms** — first use of any acronym is spelled out (e.g., "real-time (RT)"). (Anti-pattern: *undefined acronym*, *tautological glossary*.)
+6. **No broken references** — anchor links resolve, internal links go somewhere real, "see X" actually points to X. (Anti-pattern: *broken anchor*, *vague reference*, *circular FAQ*.)
+7. **Chunkable** — long prose paragraphs become bullets or small sections so retrieval works. (Anti-pattern: *topic explosion in one page*.)
+8. **Discoverable** — root `llms.txt`, descriptive page titles, schema.org `Article`/`HowTo` metadata where useful. (Anti-pattern: *no `llms.txt` / no machine-readable index*.)
+
+### Self-audit (no audit tool needed)
+
+If the audit tool is unavailable, you can self-audit any page against these eight criteria. For each, ask:
+
+- Does the page meet the criterion as written? (Yes / Partially / No)
+- If not, what's the smallest edit that would change a No to a Yes?
+
+A page that scores Yes on all eight is in good shape regardless of any tool's number.
 
 ---
 

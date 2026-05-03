@@ -47,25 +47,9 @@ _(Names added with permission as the catalog is curated.)_
 
 ---
 
-## Anti-patterns we expected to find (preview)
+## Anti-patterns the demo was seeded with
 
-These are the patterns the demo docs were seeded with — the catalog will confirm or refine them based on what attendees actually surface:
-
-1. **Wall of prose** — multiple paragraphs without headings or bullets. LLMs cannot retrieve discrete answers from undifferentiated text.
-2. **Untagged code block** — fenced code without a language identifier. Breaks both syntax highlighting for humans and reliable parsing for tools.
-3. **Vague reference** — "see the appropriate page" without a link. Dead-ends both readers and crawlers.
-4. **Undefined acronym** — RT, SSE, ACF used without spelling out at first use. LLMs hallucinate meanings.
-5. **Buried prerequisites** — install instructions assume the environment is already set up. Quickstart fails for newcomers.
-6. **No `llms.txt` / no machine-readable index** — site has no front-door for LLMs and crawlers.
-7. **Circular FAQ** — "What is X? See our X page." Provides zero information at the point of question.
-8. **Broken anchor** — `[link](#section-that-doesnt-exist)`. Confuses both humans and link checkers.
-9. **Missing TL;DR** — long page with no summary at top. LLMs fall back to truncating arbitrarily.
-10. **Buried lede** — actual answer is in paragraph 4. LLMs may stop reading or pick a wrong earlier sentence.
-11. **Tautological glossary** — "CDN: Content Delivery Network." Expansion without explanation.
-12. **Generic guidance** — "configure as needed" / "set the appropriate value." Forces the reader to guess.
-13. **Empty stub commands** — CLI reference that names commands without flags, args, or examples.
-14. **Topic explosion in one page** — mentioning SSR, real-time, dynamic routes, WebSockets in one paragraph each. Each gets too little to be useful.
-15. **Numbers buried in prose** — "a few hundred per minute" instead of a table with concrete values.
+The canonical anti-pattern list — organized under the eight AI-readiness criteria — lives in [CONTRIBUTING.md → AI-readiness criteria](CONTRIBUTING.md#what-ai-readiness-means-here-canonical-list). The catalog above will confirm or refine those patterns based on what attendees actually surface today.
 
 ---
 

@@ -9,10 +9,11 @@ A Writing Day project for [Write the Docs Portland 2026](https://www.writethedoc
 ## Quick links
 
 - 📖 **Live docs site (audit this URL):** [wtd-quillship-demo.github.io/quillship-docs](https://wtd-quillship-demo.github.io/quillship-docs/)
-- ✅ **Pick a task:** [Issues labeled `wtd-2026`](https://github.com/wtd-quillship-demo/quillship-docs/issues?q=is%3Aissue+is%3Aopen+label%3Awtd-2026) (8 to choose from, 3 marked `good-first-issue`)
+- ✅ **Pick a task:** [Issues labeled `wtd-2026`](https://github.com/wtd-quillship-demo/quillship-docs/issues?q=is%3Aissue+is%3Aopen+label%3Awtd-2026) (16 to choose from, 5 marked `good-first-issue`)
 - 📊 **Pattern tracker (download):** [pattern-tracker.xlsx](pattern-tracker.xlsx)
 - 🤖 **AI coding agents — read this first:** [CONTRIBUTING.md](CONTRIBUTING.md)
-- 📚 **Community Pattern Catalog (grows during the day):** [PATTERN_CATALOG.md](PATTERN_CATALOG.md)
+- 📚 **Community Pattern Catalog (we'll build this together today, starting from zero):** [PATTERN_CATALOG.md](PATTERN_CATALOG.md)
+- 📋 **Canonical anti-patterns + fix criteria:** [CONTRIBUTING.md → AI-readiness criteria](CONTRIBUTING.md#what-ai-readiness-means-here-canonical-list)
 
 ---
 
@@ -79,9 +80,9 @@ Quillship is a fictional headless CMS. The docs cover the surface area you'd exp
 
 **The problem.** Most docs were written for humans who skim. AI agents and LLMs read them differently — they need structure, chunkable sections, language-tagged code blocks, defined acronyms, working anchors, and a way to discover the site (`llms.txt`, semantic metadata). When docs lack these, AI assistants give your users wrong answers about your product.
 
-**Today's focus.** Each defective page in this repo demonstrates one or more anti-patterns that make docs harder for AI to use. Your job is to **find them, fix them, and watch the AI-readiness score go up.**
+**Today's focus.** Each defective page in this repo demonstrates one or more anti-patterns that make docs harder for AI to use. Your job is to **find them, fix them, and re-audit.** The audit tool gives a numeric score; if the tool is unavailable or you'd rather not use it, you can self-audit any page against the [eight criteria in CONTRIBUTING.md](CONTRIBUTING.md#what-ai-readiness-means-here-canonical-list).
 
-A community-authored [Pattern Catalog](PATTERN_CATALOG.md) grows as people contribute — every fix adds a row, every contributor gets credit. We'll publish whatever we surface together, however much that is. **There's no fixed deliverable size and no required time commitment** — stop by for 10 minutes or stay longer, both are useful.
+A [Community Pattern Catalog](PATTERN_CATALOG.md) gets built end-of-day from what attendees surface in the [pattern tracker](pattern-tracker.xlsx) — every contributor with permission is credited. We'll publish whatever we surface together, however much that is. **There's no fixed deliverable size and no required time commitment** — stop by for 10 minutes or stay longer, both are useful.
 
 ---
 
@@ -103,11 +104,16 @@ Don't have time to fork? No problem.
 
 The meat of the project. No clone, no terminal, no IDE setup needed.
 
-1. **Fork this repo** (top right of the GitHub page)
-2. **Enable GitHub Pages on your fork:** Settings → Pages → Source: `main` branch, root → Save. ~30 seconds later you'll have your own live URL: `https://YOUR-USERNAME.github.io/quillship-docs/`
-3. **Pick an Issue** — [Issues labeled `wtd-2026`](https://github.com/wtd-quillship-demo/quillship-docs/issues?q=is%3Aissue+is%3Aopen+label%3Awtd-2026)
-4. **Edit the file directly on github.com** — click the file → click the pencil icon → fix → commit
-5. **Audit your fork's GitHub Pages URL** — paste it into the audit tool at the project table
+1. **Fork this repo** — click the **Fork** button (top-right of the repo page) → **Create fork** (defaults are fine)
+2. **Enable GitHub Pages on your fork:**
+   - On your fork, click **Settings** (top nav)
+   - In the left sidebar, click **Pages**
+   - Under **Build and deployment** → **Source**, select **Deploy from a branch**
+   - Under **Branch**, pick `main` and `/ (root)` → click **Save**
+   - Wait ~30 seconds. Your live URL appears at the top of the same page: `https://YOUR-USERNAME.github.io/quillship-docs/`
+3. **Pick an Issue** — [Issues labeled `wtd-2026`](https://github.com/wtd-quillship-demo/quillship-docs/issues?q=is%3Aissue+is%3Aopen+label%3Awtd-2026). First-timers: filter to [`good-first-issue`](https://github.com/wtd-quillship-demo/quillship-docs/issues?q=is%3Aissue+is%3Aopen+label%3Agood-first-issue) (~20-30 min each).
+4. **Edit the file directly on github.com** — open the file on your fork → click the pencil icon → fix → commit (commits straight to your fork's `main`)
+5. **Audit your fork's GitHub Pages URL** — paste it into the audit tool at the project table, or self-audit against the [eight criteria in CONTRIBUTING.md](CONTRIBUTING.md#what-ai-readiness-means-here-canonical-list)
 6. **Watch the score go up.** Comment your before/after on the Issue.
 
 ### 🔴 Path C — Deeper dive (longer)
@@ -132,7 +138,7 @@ Before you start fixing, do these three things:
 
 ## Tools you'll use
 
-- **AI-readiness audit tool** — URL provided at the project table (CloudFront-hosted scanner; no signup, no auth)
+- **AI-readiness audit tool** — URL provided at the project table (CloudFront-hosted scanner; no signup, no auth). If the tool is down or you'd rather not use it, the [eight criteria in CONTRIBUTING.md](CONTRIBUTING.md#what-ai-readiness-means-here-canonical-list) work as a manual self-audit checklist.
 - **GitHub.com web editor** — pencil icon on any file, no local setup needed
 - **Your favorite editor** — VS Code, Sublime, vim, whatever. Optional.
 - **Your AI coding assistant** — Cursor / Copilot / Kiro / Claude / Codex. Totally optional. See [CONTRIBUTING.md](CONTRIBUTING.md).
@@ -143,17 +149,11 @@ You only need a GitHub account. That's it.
 
 ## What "AI-readiness" actually means
 
-A docs site is AI-ready when an LLM can read it once and answer accurate, specific questions about your product. The patterns we'll surface today include:
+A docs site is AI-ready when an LLM can read it once and answer accurate, specific questions about your product.
 
-- **Structure** — clear H1 → H2 → H3 hierarchy, semantic HTML, table of contents
-- **Chunkability** — short focused sections an LLM can retrieve independently
-- **Code blocks** — language-tagged, runnable, with the install/setup right next to them
-- **Discoverability** — `llms.txt`, `sitemap.xml`, schema.org metadata, descriptive page titles
-- **Linking** — anchor links that work, no broken references, glossary for acronyms
-- **Specificity** — concrete examples instead of vague "configure as needed" prose
-- **Self-contained pages** — each page tells you enough to act, without requiring 5 prerequisite reads
+**The canonical list of eight criteria — and the anti-patterns each one covers — lives in [CONTRIBUTING.md → AI-readiness criteria](CONTRIBUTING.md#what-ai-readiness-means-here-canonical-list).** That's the same list the audit tool scores against, and the same list you can use to self-audit if the tool is unavailable.
 
-The full reference grows in [PATTERN_CATALOG.md](PATTERN_CATALOG.md) during the day.
+The [Pattern Catalog](PATTERN_CATALOG.md) is the curated end-of-day artifact built from what attendees actually surface in the [pattern tracker](pattern-tracker.xlsx) during the day.
 
 ---
 
