@@ -10,7 +10,7 @@ A Writing Day project for [Write the Docs Portland 2026](https://www.writethedoc
 
 - **Audit tool (early prototype — be open to feedback)** — [dzg557ngeo1lr.cloudfront.net](https://dzg557ngeo1lr.cloudfront.net/) — no signup, no auth. Paste any docs URL and it returns an AI-readiness report grouped into Structured Data, Discoverability, Content Quality, and AI Citations. Pass / warning / not-verified per signal — no numeric scoring. The tool is rough; if it misses a fix, that's useful feedback we want to hear.
 - **Live docs site (the URL the audit tool reads on this repo):** [wtd-quillship-demo.github.io/quillship-docs](https://wtd-quillship-demo.github.io/quillship-docs/)
-- **Pick a task:** [Issues labeled `wtd-2026`](https://github.com/wtd-quillship-demo/quillship-docs/issues?q=is%3Aissue+is%3Aopen+label%3Awtd-2026) (16 to choose from, 5 marked `good-first-issue`)
+- **Pick a task:** [Issues labeled `wtd-2026`](https://github.com/wtd-quillship-demo/quillship-docs/issues?q=is%3Aissue+is%3Aopen+label%3Awtd-2026) (19 to choose from — 16 page-level, 3 [site-level](https://github.com/wtd-quillship-demo/quillship-docs/issues?q=is%3Aissue+is%3Aopen+label%3Asite-level), 5 marked `good-first-issue`)
 - **Pattern tracker (live shared sheet):** [Quillship Pattern Tracker on Google Sheets](https://docs.google.com/spreadsheets/d/1wdKhOdjaP52pjRpgaVR3DUaVMlJDxNnX/edit?usp=sharing) — view-only; the project lead writes rows during the day. Offline backup: [pattern-tracker.xlsx in repo](pattern-tracker.xlsx).
 - **AI coding agents — read this first:** [CONTRIBUTING.md](CONTRIBUTING.md)
 - **Community Pattern Catalog (we'll build this together today, starting from zero):** [PATTERN_CATALOG.md](PATTERN_CATALOG.md)
