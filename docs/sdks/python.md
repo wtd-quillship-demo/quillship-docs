@@ -1,0 +1,58 @@
+# Python SDK
+
+The Python SDK gives you a clean, idiomatic way to work with Quillship from your Python code.
+
+## Quickstart
+
+Once you have the SDK installed, you can start using it right away. Here's a simple example:
+
+```
+from quillship import Client
+
+client = Client(token="your-token")
+
+content = client.content.create(
+    workspace="my-workspace",
+    content_type="article",
+    fields={
+        "title": "Hello, world!",
+        "body": "This is my first article."
+    }
+)
+
+print(content.id)
+```
+
+You can also fetch existing content:
+
+```
+article = client.content.get("article-id-here")
+print(article.fields["title"])
+```
+
+Updating is just as simple:
+
+```
+client.content.update("article-id-here", fields={"title": "Updated title"})
+```
+
+And deleting:
+
+```
+client.content.delete("article-id-here")
+```
+
+## Async support
+
+If you're using asyncio, we have an async client too. It works the same way but with `await`.
+
+```
+from quillship import AsyncClient
+
+async with AsyncClient(token="your-token") as client:
+    content = await client.content.get("article-id-here")
+```
+
+## Error handling
+
+The SDK raises exceptions for API errors. Catch QuillshipError for general errors, or one of the specific subclasses for finer-grained handling.

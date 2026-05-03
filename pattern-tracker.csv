@@ -1,0 +1,11 @@
+Contributor,Site or File,Issue Number,Anti-Pattern Spotted,Severity (Low/Med/High),Fix Applied,Score Before,Score After,Notes
+EXAMPLE_Sam,docs/api-reference.md,#3,Wall of prose with no endpoint headings,High,Split into H2 per endpoint with request/response example each,42,71,LLM could now answer "how do I delete content" correctly
+EXAMPLE_Pat,docs.your-real-site.com,N/A (Ring 1),Code blocks with no language tag,Med,Added language tags to 12 code samples,58,73,Stripe-style format
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
