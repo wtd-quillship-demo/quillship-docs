@@ -9,7 +9,7 @@ A curated catalog of patterns that make documentation more or less readable to A
 We use **two surfaces** during Writing Day:
 
 1. **The Pattern Tracker (live working surface)** — a Google Sheet where every contributor logs every pattern they spot, in real time. It's messy, fast, and grows row-by-row throughout the day.
-   - Live shared sheet (view-only for attendees): [Quillship Pattern Tracker on Google Sheets](https://docs.google.com/spreadsheets/d/12By04Tlk0wjhkug2KwW8r3ZzrKZ6g5Qo/edit?usp=sharing)
+   - Live shared sheet (view-only for attendees): [Quillship Pattern Tracker on Google Sheets](https://docs.google.com/spreadsheets/d/1wdKhOdjaP52pjRpgaVR3DUaVMlJDxNnX/edit?usp=sharing)
    - Offline backup in this repo: [pattern-tracker.xlsx](pattern-tracker.xlsx)
 
 2. **This catalog (curated artifact)** — a polished markdown doc published end-of-day (or shortly after the conference), drawn from the most useful patterns surfaced in the tracker. Each pattern gets a name, a description, an example, a fix recipe, and the contributor(s) credited.
