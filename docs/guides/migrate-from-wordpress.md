@@ -1,3 +1,5 @@
+<link rel="alternate" type="text/markdown" href="/quillship-docs/docs/guides/migrate-from-wordpress.html.md" />
+
 **Browse:** [README](../../README.md) · [Home](../index.md) · [Getting Started](../getting-started.md) · [API](../api-reference.md) · [Auth](../authentication.md) · [Webhooks](../webhooks.md) · [FAQ](../faq.md) · [Concepts](../concepts/content-model.md) · [GraphQL](../api/graphql.md) · [Rate Limits](../api/rate-limits.md) · [Python SDK](../sdks/python.md) · [JS SDK](../sdks/javascript.md) · [React Quickstart](../guides/quickstart-react.md) · [Migrate](../guides/migrate-from-wordpress.md) · [Deployment](../ops/deployment.md) · [CLI](../reference/cli.md) · [Glossary](../reference/glossary.md)
 
 ---
@@ -5,4 +7,65 @@
 
 # Migrating from WordPress
 
-If you're coming to Quillship from WordPress, welcome! A lot of teams make this move and we want to make it as smooth as possible for you. The first thing to know is that Quillship and WordPress are pretty different under the hood — WordPress is a coupled system where the backend, the database, and the frontend are all tied together, while Quillship is a headless CMS, which means we handle the content layer and you bring your own frontend. This is great for flexibility but it does mean you'll need to think about your migration in two parts: the content itself, and the presentation. For the content, the good news is that we have a WordPress importer that handles most of the heavy lifting. You point it at your WordPress export file and it pulls in your posts, pages, media, categories, tags, and metadata. Custom fields from ACF or similar plugins are mapped into Quillship's flexible content fields, though you may need to do some cleanup depending on how your custom fields are structured. Authors and users are imported with their roles preserved as best we can map them — WordPress has a richer permissions model than Quillship in some ways and a simpler one in others, so review the role mappings after import. For the presentation, you'll need a new frontend since WordPress's themes don't work with Quillship. Many teams use this as an opportunity to modernize their stack — Next.js, Astro, SvelteKit, and Nuxt are all popular choices and we have starter templates for each in our examples repository. If you have a heavily customized WordPress theme with complex shortcodes or custom blocks, those will need to be reimplemented in your new frontend. Plan for this — it's often the longest part of the migration. SEO is another consideration: you'll want to make sure URLs match your old WordPress paths so you don't lose search rankings. Most teams set up redirects from old WordPress URLs to new ones, and our content model includes a slug field that makes this straightforward. Comments are tricky — if you used WordPress's built-in comments you'll need to migrate to a third-party comment system like Disqus, Giscus, or a custom solution since Quillship doesn't have built-in comments. Plugins are the biggest gotcha. WordPress plugins do a huge variety of things — forms, e-commerce, SEO, analytics, security, caching — and these don't carry over. Make a list of every plugin you use and figure out the equivalent on your new stack before you cut over. For e-commerce, Shopify, Snipcart, or a custom Stripe integration are common choices. For forms, services like Formspree or your own API endpoints work well. The cutover itself should be planned for a low-traffic time. Run both systems in parallel for at least a few days while you verify everything is working. Set up monitoring on the new site before you flip DNS. And don't forget to update any external integrations — if you have webhooks pointing at WordPress, or scheduled jobs that hit WordPress endpoints, those all need to be updated. Most migrations take 2-6 weeks for a typical content site, longer for sites with heavy customization. Start early, test thoroughly, and reach out to support if you get stuck.
+## TLDR
+* Migrate in two parts: content (use importer) and presentation (build a new frontend).
+* Expect to rebuild themes, replace plugins, and handle gaps like comments and SEO redirects.
+* Plan the cutover carefully—run both systems in parallel, update integrations, and test thoroughly.
+
+## Intro
+
+If you're coming to Quillship from WordPress, welcome! A lot of teams make this move and we want to make it as smooth as possible for you. The first thing to know is that Quillship and WordPress are pretty different under the hood — WordPress is a coupled system where the backend, the database, and the frontend are all tied together, while Quillship is a headless CMS, which means we handle the content layer and you bring your own frontend.
+
+This is great for flexibility but it does mean you'll need to think about your migration in two parts: the content itself, and the presentation.
+
+## 1. Import
+
+For the content, the good news is that we have a WordPress importer that handles most of the heavy lifting. You point it at your WordPress export file and it pulls in your posts, pages, media, categories, tags, and metadata.
+
+### Custom field mapping
+
+Custom fields from ACF or similar plugins are mapped into Quillship's flexible content fields, though you may need to do some cleanup depending on how your custom fields are structured.
+
+### User roles
+
+Authors and users are imported with their roles preserved as best we can map them — WordPress has a richer permissions model than Quillship in some ways and a simpler one in others, so review the role mappings after import.
+
+## 2. Presentation
+
+For the presentation, you'll need a new frontend since WordPress's themes don't work with Quillship. Many teams use this as an opportunity to modernize their stack: Next.js, Astro, SvelteKit, and Nuxt are all popular choices and we have starter templates for each in our [examples repository](todo: add link).
+
+### Themes
+
+If you have a heavily customized WordPress theme with complex shortcodes or custom blocks, those will need to be reimplemented in your new frontend. Plan for this — it's often the longest part of the migration.
+
+### SEO
+
+SEO is another consideration: you'll want to make sure URLs match your old WordPress paths so you don't lose search rankings. Most teams set up redirects from old WordPress URLs to new ones, and our content model includes a slug field that makes this straightforward.
+
+## Common gotchas
+
+### Plugins
+
+Plugins are the biggest gotcha. WordPress plugins do a huge variety of things — forms, e-commerce, SEO, analytics, security, caching — and these don't carry over.
+
+1. Make a list of every plugin you use.
+2. Figure out the equivalent on your new stack before you cut over.
+
+### Forms
+For e-commerce, Shopify, Snipcart, or a custom Stripe integration are common choices. For forms, services like Formspree or your own API endpoints work well.
+
+### Comments
+
+Comments are tricky — if you used WordPress's built-in comments you'll need to migrate to a third-party comment system like Disqus, Giscus, or a custom solution since Quillship doesn't have built-in comments.
+
+## Cutover
+The cutover itself should be planned for a low-traffic time.
+
+1. Run both systems in parallel for at least a few days while you verify everything is working.
+2. Set up monitoring on the new site before you flip DNS.
+
+## Integrations
+And don't forget to update any external integrations — if you have webhooks pointing at WordPress, or scheduled jobs that hit WordPress endpoints, those all need to be updated.
+
+## Timeline
+Most migrations take 2-6 weeks for a typical content site, longer for sites with heavy customization. Start early, test thoroughly, and reach out to support if you get stuck.
