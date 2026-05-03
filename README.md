@@ -11,7 +11,7 @@ A Writing Day project for [Write the Docs Portland 2026](https://www.writethedoc
 - **Audit tool** — [dzg557ngeo1lr.cloudfront.net](https://dzg557ngeo1lr.cloudfront.net/) (no signup, no auth — paste any docs URL and it returns an AI-readiness score)
 - **Live docs site (the URL the audit tool reads on this repo):** [wtd-quillship-demo.github.io/quillship-docs](https://wtd-quillship-demo.github.io/quillship-docs/)
 - **Pick a task:** [Issues labeled `wtd-2026`](https://github.com/wtd-quillship-demo/quillship-docs/issues?q=is%3Aissue+is%3Aopen+label%3Awtd-2026) (16 to choose from, 5 marked `good-first-issue`)
-- **Pattern tracker (download):** [pattern-tracker.xlsx](pattern-tracker.xlsx)
+- **Pattern tracker (live shared sheet):** [Quillship Pattern Tracker on Google Sheets](https://docs.google.com/spreadsheets/d/12By04Tlk0wjhkug2KwW8r3ZzrKZ6g5Qo/edit?usp=sharing) — view-only; the project lead writes rows during the day. Offline backup: [pattern-tracker.xlsx in repo](pattern-tracker.xlsx).
 - **AI coding agents — read this first:** [CONTRIBUTING.md](CONTRIBUTING.md)
 - **Community Pattern Catalog (we'll build this together today, starting from zero):** [PATTERN_CATALOG.md](PATTERN_CATALOG.md)
 - **Canonical anti-patterns + fix criteria:** [CONTRIBUTING.md → AI-readiness criteria](CONTRIBUTING.md#what-ai-readiness-means-here-canonical-list)
@@ -83,7 +83,7 @@ Quillship is a fictional headless CMS. The docs cover the surface area you'd exp
 
 **Today's focus.** Each defective page in this repo demonstrates one or more anti-patterns that make docs harder for AI to use. Your job is to **find them, fix them, and re-audit.** The audit tool gives a numeric score; if the tool is unavailable or you'd rather not use it, you can self-audit any page against the [eight criteria in CONTRIBUTING.md](CONTRIBUTING.md#what-ai-readiness-means-here-canonical-list).
 
-A [Community Pattern Catalog](PATTERN_CATALOG.md) gets built end-of-day from what attendees surface in the [pattern tracker](pattern-tracker.xlsx) — every contributor with permission is credited. We'll publish whatever we surface together, however much that is. **There's no fixed deliverable size and no required time commitment** — stop by for 10 minutes or stay longer, both are useful.
+A [Community Pattern Catalog](PATTERN_CATALOG.md) gets built end-of-day from what attendees surface in the [live pattern tracker](https://docs.google.com/spreadsheets/d/12By04Tlk0wjhkug2KwW8r3ZzrKZ6g5Qo/edit?usp=sharing) — every contributor with permission is credited. We'll publish whatever we surface together, however much that is. **There's no fixed deliverable size and no required time commitment** — stop by for 10 minutes or stay longer, both are useful.
 
 ---
 
@@ -98,7 +98,7 @@ No fork, no fix — just see what the patterns look like in the wild.
 1. Open the [audit tool](https://dzg557ngeo1lr.cloudfront.net/)
 2. Paste **any docs URL** — the [Quillship live site](https://wtd-quillship-demo.github.io/quillship-docs/), your own product's docs, an open-source project's docs, anything
 3. Read the report. Skim the eight criteria in [CONTRIBUTING.md](CONTRIBUTING.md#what-ai-readiness-means-here-canonical-list) to interpret it
-4. Add one row to the [pattern tracker](pattern-tracker.xlsx) describing the most interesting pattern you saw
+4. Tell the project lead at the table to add a row to the [live pattern tracker](https://docs.google.com/spreadsheets/d/12By04Tlk0wjhkug2KwW8r3ZzrKZ6g5Qo/edit?usp=sharing) describing the most interesting pattern you saw
 5. Leave with an AI-readiness report and a sense of what to fix later
 
 ### Path B — Fix one issue, re-audit (~30-45 min)
@@ -188,7 +188,7 @@ A docs site is AI-ready when an LLM can read it once and answer accurate, specif
 
 **The canonical list of eight criteria — and the anti-patterns each one covers — lives in [CONTRIBUTING.md → AI-readiness criteria](CONTRIBUTING.md#what-ai-readiness-means-here-canonical-list).** That's the same list the audit tool scores against, and the same list you can use to self-audit if the tool is unavailable.
 
-The [Pattern Catalog](PATTERN_CATALOG.md) is the curated end-of-day artifact built from what attendees actually surface in the [pattern tracker](pattern-tracker.xlsx) during the day.
+The [Pattern Catalog](PATTERN_CATALOG.md) is the curated end-of-day artifact built from what attendees actually surface in the [live pattern tracker](https://docs.google.com/spreadsheets/d/12By04Tlk0wjhkug2KwW8r3ZzrKZ6g5Qo/edit?usp=sharing) during the day.
 
 ---
 
