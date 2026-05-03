@@ -8,12 +8,13 @@ A Writing Day project for [Write the Docs Portland 2026](https://www.writethedoc
 
 ## Quick links
 
-- 📖 **Live docs site (audit this URL):** [wtd-quillship-demo.github.io/quillship-docs](https://wtd-quillship-demo.github.io/quillship-docs/)
-- ✅ **Pick a task:** [Issues labeled `wtd-2026`](https://github.com/wtd-quillship-demo/quillship-docs/issues?q=is%3Aissue+is%3Aopen+label%3Awtd-2026) (16 to choose from, 5 marked `good-first-issue`)
-- 📊 **Pattern tracker (download):** [pattern-tracker.xlsx](pattern-tracker.xlsx)
-- 🤖 **AI coding agents — read this first:** [CONTRIBUTING.md](CONTRIBUTING.md)
-- 📚 **Community Pattern Catalog (we'll build this together today, starting from zero):** [PATTERN_CATALOG.md](PATTERN_CATALOG.md)
-- 📋 **Canonical anti-patterns + fix criteria:** [CONTRIBUTING.md → AI-readiness criteria](CONTRIBUTING.md#what-ai-readiness-means-here-canonical-list)
+- **Audit tool** — [dzg557ngeo1lr.cloudfront.net](https://dzg557ngeo1lr.cloudfront.net/) (no signup, no auth — paste any docs URL and it returns an AI-readiness score)
+- **Live docs site (the URL the audit tool reads on this repo):** [wtd-quillship-demo.github.io/quillship-docs](https://wtd-quillship-demo.github.io/quillship-docs/)
+- **Pick a task:** [Issues labeled `wtd-2026`](https://github.com/wtd-quillship-demo/quillship-docs/issues?q=is%3Aissue+is%3Aopen+label%3Awtd-2026) (16 to choose from, 5 marked `good-first-issue`)
+- **Pattern tracker (download):** [pattern-tracker.xlsx](pattern-tracker.xlsx)
+- **AI coding agents — read this first:** [CONTRIBUTING.md](CONTRIBUTING.md)
+- **Community Pattern Catalog (we'll build this together today, starting from zero):** [PATTERN_CATALOG.md](PATTERN_CATALOG.md)
+- **Canonical anti-patterns + fix criteria:** [CONTRIBUTING.md → AI-readiness criteria](CONTRIBUTING.md#what-ai-readiness-means-here-canonical-list)
 
 ---
 
@@ -88,35 +89,69 @@ A [Community Pattern Catalog](PATTERN_CATALOG.md) gets built end-of-day from wha
 
 ## How to participate — stay as long or as short as you like
 
-Writing Day projects are flexible. Bounce between tables. Stop in for 10 minutes or settle in. All three of these paths produce something useful.
+Writing Day projects are flexible. Bounce between tables. Stop in for 10 minutes or settle in. All three of these paths produce something useful — and you can mix them. Audit your own docs to see the patterns, then fix a Quillship issue (or vice versa). Both teach the same lesson from different sides.
 
-### 🟢 Path A — Audit-only (~10 min)
+### Path A — Audit-only (~10 min)
 
-Don't have time to fork? No problem.
+No fork, no fix — just see what the patterns look like in the wild.
 
-1. Walk up to the project table
-2. Bring **any docs URL** you care about — your own product, an open-source project, a docs site you love or hate
-3. We'll audit it together, walk through the report
-4. Add one row to the [pattern tracker](pattern-tracker.xlsx)
-5. Leave with a personalized AI-readiness report
+1. Open the [audit tool](https://dzg557ngeo1lr.cloudfront.net/)
+2. Paste **any docs URL** — the [Quillship live site](https://wtd-quillship-demo.github.io/quillship-docs/), your own product's docs, an open-source project's docs, anything
+3. Read the report. Skim the eight criteria in [CONTRIBUTING.md](CONTRIBUTING.md#what-ai-readiness-means-here-canonical-list) to interpret it
+4. Add one row to the [pattern tracker](pattern-tracker.xlsx) describing the most interesting pattern you saw
+5. Leave with an AI-readiness report and a sense of what to fix later
 
-### 🟡 Path B — Fork, fix, re-audit (~30-45 min)
+### Path B — Fix one issue, re-audit (~30-45 min)
 
-The meat of the project. No clone, no terminal, no IDE setup needed.
+The core loop. Two ways to edit — pick whichever you're more comfortable with.
 
-1. **Fork this repo** — click the **Fork** button (top-right of the repo page) → **Create fork** (defaults are fine)
-2. **Enable GitHub Pages on your fork:**
-   - On your fork, click **Settings** (top nav)
-   - In the left sidebar, click **Pages**
+#### B1. Pick and claim an issue
+
+1. Open [Issues labeled `wtd-2026`](https://github.com/wtd-quillship-demo/quillship-docs/issues?q=is%3Aissue+is%3Aopen+label%3Awtd-2026). First-timers: filter to [`good-first-issue`](https://github.com/wtd-quillship-demo/quillship-docs/issues?q=is%3Aissue+is%3Aopen+label%3Agood-first-issue) (~15-25 min each)
+2. **Assign the issue to yourself** so nobody else picks it up:
+   - On the issue page, in the right sidebar, click the gear icon next to **Assignees**
+   - Click **assign yourself** (or search your username and select it)
+   - If you can't see the gear (you're not a repo collaborator), leave a comment that says "Taking this" — that works as a soft claim. The project lead at the table can also assign you.
+
+#### B2a (preferred for technical writers) — Clone, edit locally, push to your fork
+
+Most comfortable if you live in an editor. You'll work the same way you would on any docs repo.
+
+1. **Fork this repo** — click **Fork** (top-right) → **Create fork**
+2. **Clone your fork:**
+   ```bash
+   git clone https://github.com/YOUR-USERNAME/quillship-docs.git
+   cd quillship-docs
+   ```
+3. **Open the file** named in the issue (e.g. `docs/api-reference.md`) in your editor
+4. **Edit, save, commit, push:**
+   ```bash
+   git add docs/api-reference.md
+   git commit -m "Fix #3: structure api-reference into resource groups"
+   git push
+   ```
+5. **Enable GitHub Pages on your fork** (one-time, takes ~30 seconds):
+   - On your fork, click **Settings** → **Pages** (left sidebar)
    - Under **Build and deployment** → **Source**, select **Deploy from a branch**
    - Under **Branch**, pick `main` and `/ (root)` → click **Save**
-   - Wait ~30 seconds. Your live URL appears at the top of the same page: `https://YOUR-USERNAME.github.io/quillship-docs/`
-3. **Pick an Issue** — [Issues labeled `wtd-2026`](https://github.com/wtd-quillship-demo/quillship-docs/issues?q=is%3Aissue+is%3Aopen+label%3Awtd-2026). First-timers: filter to [`good-first-issue`](https://github.com/wtd-quillship-demo/quillship-docs/issues?q=is%3Aissue+is%3Aopen+label%3Agood-first-issue) (~20-30 min each).
-4. **Edit the file directly on github.com** — open the file on your fork → click the pencil icon → fix → commit (commits straight to your fork's `main`)
-5. **Audit your fork's GitHub Pages URL** — paste it into the audit tool at the project table, or self-audit against the [eight criteria in CONTRIBUTING.md](CONTRIBUTING.md#what-ai-readiness-means-here-canonical-list)
-6. **Watch the score go up.** Comment your before/after on the Issue.
+   - Your live URL: `https://YOUR-USERNAME.github.io/quillship-docs/`
+6. **Audit your fork's URL** at [the audit tool](https://dzg557ngeo1lr.cloudfront.net/). Paste before/after into the issue comment.
 
-### 🔴 Path C — Deeper dive (longer)
+#### B2b (alternative) — Edit on github.com directly, no clone, no terminal
+
+Fastest path if you don't want to set up local tooling.
+
+1. **Fork this repo** — click **Fork** (top-right) → **Create fork**
+2. **Open the file** in your fork — navigate to e.g. `docs/api-reference.md`
+3. **Click the pencil icon** (top-right of the file view) → edit in the browser → scroll to the bottom → **Commit changes** (commits straight to your fork's `main`)
+4. **Enable GitHub Pages** (same one-time step as above): Settings → Pages → Deploy from a branch → `main` + `/ (root)` → Save → your URL is `https://YOUR-USERNAME.github.io/quillship-docs/`
+5. **Audit** at [the audit tool](https://dzg557ngeo1lr.cloudfront.net/) and post before/after on the issue
+
+#### B3. Comment your before/after on the issue
+
+Whichever editing path you took, drop the before/after audit score (or — if you self-audited — a one-line summary of what changed) on the issue thread before unassigning yourself or marking done. That's how the [Pattern Catalog](PATTERN_CATALOG.md) gets credited contributors at the end of the day.
+
+### Path C — Deeper dive (longer)
 
 For anyone who finds a category of patterns they care about.
 
@@ -132,15 +167,15 @@ Before you start fixing, do these three things:
 
 - [ ] **Read [CONTRIBUTING.md](CONTRIBUTING.md)** — explains AI-readiness in concrete terms (also written so AI coding agents can read it)
 - [ ] **Pick one issue** from [the `wtd-2026` filter](https://github.com/wtd-quillship-demo/quillship-docs/issues?q=is%3Aissue+is%3Aopen+label%3Awtd-2026) — first-timers should pick a [`good-first-issue`](https://github.com/wtd-quillship-demo/quillship-docs/issues?q=is%3Aissue+is%3Aopen+label%3Agood-first-issue)
-- [ ] **Comment on the issue saying you're taking it** — keeps two people from duplicating work
+- [ ] **Assign the issue to yourself** (sidebar → Assignees → assign yourself) so nobody else picks it up. If you can't (not a collaborator), comment "Taking this" — that works as a soft claim.
 
 ---
 
 ## Tools you'll use
 
-- **AI-readiness audit tool** — URL provided at the project table (CloudFront-hosted scanner; no signup, no auth). If the tool is down or you'd rather not use it, the [eight criteria in CONTRIBUTING.md](CONTRIBUTING.md#what-ai-readiness-means-here-canonical-list) work as a manual self-audit checklist.
-- **GitHub.com web editor** — pencil icon on any file, no local setup needed
-- **Your favorite editor** — VS Code, Sublime, vim, whatever. Optional.
+- **AI-readiness audit tool** — [dzg557ngeo1lr.cloudfront.net](https://dzg557ngeo1lr.cloudfront.net/) (no signup, no auth). If it's down or you'd rather not use it, the [eight criteria in CONTRIBUTING.md](CONTRIBUTING.md#what-ai-readiness-means-here-canonical-list) work as a manual self-audit checklist.
+- **Your editor** — VS Code, Sublime, vim, whatever. Recommended for technical writers (clone the fork, edit locally, push).
+- **GitHub.com pencil-icon editor** — alternative if you don't want to clone. Edits commit straight to your fork's `main`.
 - **Your AI coding assistant** — Cursor / Copilot / Kiro / Claude / Codex. Totally optional. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 You only need a GitHub account. That's it.
