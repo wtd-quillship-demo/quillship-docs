@@ -27,12 +27,12 @@ A documentation page is AI-ready when a language model can read it once and answ
 
 ### Self-audit (no audit tool needed)
 
-If the audit tool is unavailable, you can self-audit any page against these eight criteria. For each, ask:
+The audit tool covers many of these signals but not all of them — it's an early prototype and part of today's exercise is finding out where it lines up with this list and where it falls short. You can self-audit any page against these eight criteria. For each, ask:
 
 - Does the page meet the criterion as written? (Yes / Partially / No)
 - If not, what's the smallest edit that would change a No to a Yes?
 
-A page that scores Yes on all eight is in good shape regardless of any tool's number.
+A page that's a Yes on all eight is in good shape regardless of what the tool reports.
 
 ---
 
@@ -41,7 +41,7 @@ A page that scores Yes on all eight is in good shape regardless of any tool's nu
 1. **Pick an Issue** from the [Issues tab](../../issues) with the `wtd-2026` label. Each Issue targets one defective file and lists the anti-patterns to fix.
 2. **Edit the file** — directly on github.com (pencil icon) or locally if you cloned.
 3. **Don't add features** — Quillship is a fictional product with a fixed feature set. If a defective doc is vague about how something works, you can either (a) make a reasonable guess that's consistent with the rest of the docs, or (b) leave a `TODO:` for the product team. Don't invent endpoints, fields, or behaviors that aren't already implied somewhere.
-4. **Re-audit** — paste your fork's GitHub Pages URL into the audit tool, capture the new score, and add a row to `pattern-tracker.csv` with what changed.
+4. **Re-run the audit** — paste your fork's GitHub Pages URL into the audit tool. In an issue comment, note: did the tool detect your fix? (Yes / Partial / No) Which signal moved? Or did the tool miss the change you made — if so, say so. The project lead at the table will add a row to the [live pattern tracker](https://docs.google.com/spreadsheets/d/12By04Tlk0wjhkug2KwW8r3ZzrKZ6g5Qo/edit?usp=sharing) capturing your fix and your tool feedback.
 5. **Optional PR back to main** — if you're proud of your fix and want it in the canonical Pattern Catalog, open a PR. Mention which Issue it closes.
 
 ---

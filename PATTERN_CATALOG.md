@@ -27,7 +27,8 @@ Each entry follows the format:
 **What it looks like:** concrete example or signal
 **Why AI struggles with it:** one or two sentences
 **Fix:** what to do instead
-**Example before/after:** in the Quillship demo or a real audited site
+**Example:** in the Quillship demo or a real audited site
+**Did the audit tool detect this?** Yes / Partial / No — plus a note on which signal moved (or whether the tool missed it)
 **Spotted by:** contributor first names
 ```
 

@@ -1,11 +1,10 @@
-Contributor,Site or File,Issue Number,Anti-Pattern Spotted,Severity (Low/Med/High),Fix Applied,Score Before,Score After,Notes
-EXAMPLE_Sam,docs/api-reference.md,#3,Wall of prose with no endpoint headings,High,Split into H2 per endpoint with request/response example each,42,71,LLM could now answer "how do I delete content" correctly
-EXAMPLE_Pat,docs.your-real-site.com,N/A (Ring 1),Code blocks with no language tag,Med,Added language tags to 12 code samples,58,73,Stripe-style format
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
+Contributor,Site or File,Category,Issue Number,Anti-Pattern Spotted,Severity (Low/Med/High),Fix Applied,Tool detected fix? (Yes/Partial/No),Signal that moved,Honest feedback on tool,Notes
+EXAMPLE_Sam,docs/api-reference.md,Top level,#3,Wall of prose with no endpoint headings,High,Split into H2 per endpoint with request/response example each,Yes,Content Quality structure heading flipped from warning to pass; endpoints now show as own sections,Tool caught the structural change immediately. Did NOT comment on whether request/response examples were complete — would be useful.,LLM could now answer "how do I delete content" correctly
+EXAMPLE_Pat,docs.your-real-site.com,External,N/A (Ring 1),Code blocks with no language tag,Med,Added language tags to 12 code samples,Partial,Code blocks now show as language-tagged; site-level Discoverability still warning (no llms.txt yet),Tool flagged language tags fine. Missed that one block was tagged `js` but the site uses `javascript` elsewhere — inconsistency the tool didn't catch.,Stripe-style format
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,

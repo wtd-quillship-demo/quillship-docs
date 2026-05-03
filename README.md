@@ -8,7 +8,7 @@ A Writing Day project for [Write the Docs Portland 2026](https://www.writethedoc
 
 ## Quick links
 
-- **Audit tool** — [dzg557ngeo1lr.cloudfront.net](https://dzg557ngeo1lr.cloudfront.net/) (no signup, no auth — paste any docs URL and it returns an AI-readiness score)
+- **Audit tool (early prototype — be open to feedback)** — [dzg557ngeo1lr.cloudfront.net](https://dzg557ngeo1lr.cloudfront.net/) — no signup, no auth. Paste any docs URL and it returns an AI-readiness report grouped into Structured Data, Discoverability, Content Quality, and AI Citations. Pass / warning / not-verified per signal — no numeric scoring. The tool is rough; if it misses a fix, that's useful feedback we want to hear.
 - **Live docs site (the URL the audit tool reads on this repo):** [wtd-quillship-demo.github.io/quillship-docs](https://wtd-quillship-demo.github.io/quillship-docs/)
 - **Pick a task:** [Issues labeled `wtd-2026`](https://github.com/wtd-quillship-demo/quillship-docs/issues?q=is%3Aissue+is%3Aopen+label%3Awtd-2026) (16 to choose from, 5 marked `good-first-issue`)
 - **Pattern tracker (live shared sheet):** [Quillship Pattern Tracker on Google Sheets](https://docs.google.com/spreadsheets/d/12By04Tlk0wjhkug2KwW8r3ZzrKZ6g5Qo/edit?usp=sharing) — view-only; the project lead writes rows during the day. Offline backup: [pattern-tracker.xlsx in repo](pattern-tracker.xlsx).
@@ -81,7 +81,7 @@ Quillship is a fictional headless CMS. The docs cover the surface area you'd exp
 
 **The problem.** Most docs were written for humans who skim. AI agents and LLMs read them differently — they need structure, chunkable sections, language-tagged code blocks, defined acronyms, working anchors, and a way to discover the site (`llms.txt`, semantic metadata). When docs lack these, AI assistants give your users wrong answers about your product.
 
-**Today's focus.** Each defective page in this repo demonstrates one or more anti-patterns that make docs harder for AI to use. Your job is to **find them, fix them, and re-audit.** The audit tool gives a numeric score; if the tool is unavailable or you'd rather not use it, you can self-audit any page against the [eight criteria in CONTRIBUTING.md](CONTRIBUTING.md#what-ai-readiness-means-here-canonical-list).
+**Today's focus.** Each defective page in this repo demonstrates one or more anti-patterns that make docs harder for AI to use. Your job is to **find them, fix them, re-run the audit tool, and tell us whether the tool picked up your fix.** The tool currently flags signals as pass / warning / not-verified across four categories — no numeric scoring. If the tool is unavailable, or it doesn't reflect the change you made, self-audit against the [eight criteria in CONTRIBUTING.md](CONTRIBUTING.md#what-ai-readiness-means-here-canonical-list) and note that in your issue comment. Honest feedback about the tool — including "the tool didn't catch this" — is exactly what we want.
 
 A [Community Pattern Catalog](PATTERN_CATALOG.md) gets built end-of-day from what attendees surface in the [live pattern tracker](https://docs.google.com/spreadsheets/d/12By04Tlk0wjhkug2KwW8r3ZzrKZ6g5Qo/edit?usp=sharing) — every contributor with permission is credited. We'll publish whatever we surface together, however much that is. **There's no fixed deliverable size and no required time commitment** — stop by for 10 minutes or stay longer, both are useful.
 
@@ -99,7 +99,7 @@ No fork, no fix — just see what the patterns look like in the wild.
 2. Paste **any docs URL** — the [Quillship live site](https://wtd-quillship-demo.github.io/quillship-docs/), your own product's docs, an open-source project's docs, anything
 3. Read the report. Skim the eight criteria in [CONTRIBUTING.md](CONTRIBUTING.md#what-ai-readiness-means-here-canonical-list) to interpret it
 4. Tell the project lead at the table to add a row to the [live pattern tracker](https://docs.google.com/spreadsheets/d/12By04Tlk0wjhkug2KwW8r3ZzrKZ6g5Qo/edit?usp=sharing) describing the most interesting pattern you saw
-5. Leave with an AI-readiness report and a sense of what to fix later
+5. Leave with an AI-readiness report and a sense of what to fix later — and if the report missed something obvious about the page, jot that down too
 
 ### Path B — Fix one issue, re-audit (~30-45 min)
 
@@ -135,7 +135,7 @@ Most comfortable if you live in an editor. You'll work the same way you would on
    - Under **Build and deployment** → **Source**, select **Deploy from a branch**
    - Under **Branch**, pick `main` and `/ (root)` → click **Save**
    - Your live URL: `https://YOUR-USERNAME.github.io/quillship-docs/`
-6. **Audit your fork's URL** at [the audit tool](https://dzg557ngeo1lr.cloudfront.net/). Paste before/after into the issue comment.
+6. **Re-run the audit on your fork's URL** at [the audit tool](https://dzg557ngeo1lr.cloudfront.net/). In an issue comment, share: which signal(s) moved (e.g. "`llms.txt` went from ✗ to ✓"), or — if the tool didn't pick up your fix — say so. That's useful feedback on the tool itself.
 
 #### B2b (alternative) — Edit on github.com directly, no clone, no terminal
 
@@ -145,11 +145,17 @@ Fastest path if you don't want to set up local tooling.
 2. **Open the file** in your fork — navigate to e.g. `docs/api-reference.md`
 3. **Click the pencil icon** (top-right of the file view) → edit in the browser → scroll to the bottom → **Commit changes** (commits straight to your fork's `main`)
 4. **Enable GitHub Pages** (same one-time step as above): Settings → Pages → Deploy from a branch → `main` + `/ (root)` → Save → your URL is `https://YOUR-USERNAME.github.io/quillship-docs/`
-5. **Audit** at [the audit tool](https://dzg557ngeo1lr.cloudfront.net/) and post before/after on the issue
+5. **Re-run the audit** at [the audit tool](https://dzg557ngeo1lr.cloudfront.net/) and comment on the issue: which signals moved, or whether the tool missed the change you made
 
-#### B3. Comment your before/after on the issue
+#### B3. Comment your audit feedback on the issue
 
-Whichever editing path you took, drop the before/after audit score (or — if you self-audited — a one-line summary of what changed) on the issue thread before unassigning yourself or marking done. That's how the [Pattern Catalog](PATTERN_CATALOG.md) gets credited contributors at the end of the day.
+Whichever editing path you took, drop a quick comment on the issue thread before marking it done:
+
+- **Did the tool detect your fix?** Yes / Partial / No
+- **Which signal moved?** (e.g. "`llms.txt` went from ✗ to ✓", or "all code blocks now show as language-tagged")
+- **Or — if the tool missed the fix entirely** — say that. The tool is a rough prototype and honest feedback is more useful than a clean report.
+
+That's how the [Pattern Catalog](PATTERN_CATALOG.md) gets credited contributors at the end of the day, and how we learn what the audit tool needs to detect next.
 
 ### Path C — Deeper dive (longer)
 
@@ -186,7 +192,7 @@ You only need a GitHub account. That's it.
 
 A docs site is AI-ready when an LLM can read it once and answer accurate, specific questions about your product.
 
-**The canonical list of eight criteria — and the anti-patterns each one covers — lives in [CONTRIBUTING.md → AI-readiness criteria](CONTRIBUTING.md#what-ai-readiness-means-here-canonical-list).** That's the same list the audit tool scores against, and the same list you can use to self-audit if the tool is unavailable.
+**The canonical list of eight criteria — and the anti-patterns each one covers — lives in [CONTRIBUTING.md → AI-readiness criteria](CONTRIBUTING.md#what-ai-readiness-means-here-canonical-list).** That's the list to self-audit against. The audit tool covers many of these signals but not all of them — part of today's exercise is finding out which ones it picks up reliably and which ones it misses.
 
 The [Pattern Catalog](PATTERN_CATALOG.md) is the curated end-of-day artifact built from what attendees actually surface in the [live pattern tracker](https://docs.google.com/spreadsheets/d/12By04Tlk0wjhkug2KwW8r3ZzrKZ6g5Qo/edit?usp=sharing) during the day.
 
