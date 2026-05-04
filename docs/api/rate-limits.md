@@ -4,16 +4,60 @@
 
 # Rate Limits
 
-Quillship enforces rate limits to keep the platform stable for everyone. The exact limits depend on your plan and the type of request you're making.
+Quillship enforces rate limits to keep the platform stable for everyone.
 
-Read requests, which include any GET request and any GraphQL query, have a higher limit than write requests. On the free tier you get up to a few hundred read requests per minute, with the exact number depending on whether you're authenticated and the size of the response. Authenticated requests get higher limits than unauthenticated ones. Larger responses count more against your limit because they consume more resources to generate.
+## Limits by plan
 
-Write requests, which include POST, PATCH, PUT, DELETE, and any GraphQL mutation, have lower limits because they're more expensive to process. On the free tier these are roughly an order of magnitude lower than read limits. The Pro tier increases this significantly, and Enterprise plans can negotiate custom limits.
+| Plan | Read req/min | Write req/min | Bulk batch size |
+|------|-------------|---------------|-----------------|
+| Free | 200 | 20 | 50 |
+| Pro | 1,000 | 100 | 500 |
+| Enterprise | Custom | Custom | Custom |
 
-Bulk operations, which let you perform many actions in a single request, have their own limits and pricing model. A bulk request counts as a single request against your rate limit but the operations within it are subject to additional batch-level limits. There's also a maximum batch size that varies by operation type.
+- **Read requests** — GET requests and GraphQL queries. Authenticated requests get higher limits. Larger responses count more against your limit.
+- **Write requests** — POST, PATCH, PUT, DELETE, and GraphQL mutations. More expensive to process.
+- **Bulk operations** — A bulk request counts as a single request against your rate limit, but operations within it are subject to batch-level limits. See [bulk operations guide](../guides/migrate-from-wordpress.md) for details.
 
-When you exceed a rate limit, you'll receive a response indicating that you've been rate limited. The response will include information about when you can try again. If you keep retrying immediately you'll just keep hitting the limit, so back off and try again after the suggested wait time.
+## Response headers
 
-For most applications, you shouldn't need to worry about rate limits if you're using our SDKs, which handle backoff automatically. If you're hitting limits regularly, consider whether you can cache responses, batch requests, or upgrade your plan.
+When you make an API request, Quillship returns the following rate limit headers:
 
-Webhooks have their own rate limit on the delivery side — we won't send you more events per minute than your endpoint can handle. If your endpoint starts returning errors or timing out, we'll back off automatically.
+```
+HTTP/1.1 200 OK
+X-RateLimit-Limit: 200
+X-RateLimit-Remaining: 195
+X-RateLimit-Reset: 1717045200
+```
+
+| Header | Description |
+|--------|-------------|
+| `X-RateLimit-Limit` | Maximum requests allowed per window |
+| `X-RateLimit-Remaining` | Requests remaining in current window |
+| `X-RateLimit-Reset` | Unix timestamp when the window resets |
+
+## Example 429 response
+
+When you exceed a rate limit, Quillship returns a `429 Too Many Requests` response:
+
+```
+HTTP/1.1 429 Too Many Requests
+Retry-After: 60
+X-RateLimit-Limit: 200
+X-RateLimit-Remaining: 0
+X-RateLimit-Reset: 1717045200
+Content-Type: application/json
+
+{
+  "error": "rate_limit_exceeded",
+  "message": "Rate limit exceeded. Retry after 60 seconds.",
+  "retry_after": 60
+}
+```
+
+## Best practices
+
+- **Read `Retry-After`** — The `Retry-After` header tells you how many seconds to wait before retrying.
+- **Exponential backoff** — If you hit a rate limit, wait the suggested time, then retry with exponential backoff.
+- **Cache responses** — Cache API responses locally to reduce unnecessary requests.
+- **Use bulk endpoints** — When performing many operations, use bulk endpoints to reduce request count.
+- **Monitor headers** — Track `X-RateLimit-Remaining` to proactively slow down before hitting limits.
